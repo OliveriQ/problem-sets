@@ -1,2 +1,2 @@
 ## Overview:
-A collection of my own solutions to various programming problem sets.
+My own solutions to various programming problem sets.
