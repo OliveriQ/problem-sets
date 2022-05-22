@@ -2,15 +2,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    int n, m, k;
-    cin >> n >> m >> k;
-    vector<int> a(n);
-    vector<int> b(m);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+    int ans = 0;
+    int x=0, y=1, z=0;
+    while (z < 4000000) {
+        z = x + y;
+        x = y;
+        y = z;
+        if (z % 2 == 0) {
+            ans += z;
+        }
     }
-    for (int i = 0; i < m; i++) {
-        cin >> b[i];
-    }
-    
+    cout << ans << "\n";
 }
