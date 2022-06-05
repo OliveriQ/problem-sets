@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
 int main() {
     int n;
     uint64_t cnt = 0;
