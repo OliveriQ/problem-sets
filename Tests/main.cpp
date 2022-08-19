@@ -2,22 +2,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    int n, x;
-    cin >> n >> x;
-    vector<int> p(n);
+    int n, m;
+    cin >> n >> m;
+    vector<int> h(n), t(m);
     for (int i = 0; i < n; i++) {
-        cin >> p[i];
+        cin >> h[i];
     }
-    sort(p.begin(), p.end());
-    int l = 0, h = n-1, ans = 0;
-    while (l <= h) {
-        if (p[l] + p[h] <= x) {
-            l++; h--;
-            ans++;
+    for (int i = 0; i < m; i++) {
+        cin >> t[i];
+    }
+    sort(h.begin(), h.end());
+    // binary search for each t(i)
+    for (int i = 0; i < m; i++) {
+        bool hit = false;
+        int low = 0, high = n-1, ans = -1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (h[mid] == t[i]) {
+                hit = true;
+                ans = mid;
+            }
+            else if (h[mid] > t[i]) {
+                high = mid - 1;
+            }
+            else if (h[mid] < t[i]) {
+                low = mid + 1;
+            }
         }
-        else {
-            h--; ans++;
+        if (ans == -1) {
+            if (low - 1 >= 0) {
+                if (h[low] > t[i]) {
+                    ans = h[low-1];
+                    h.erase(h.begin()+low-1);
+                }
+                else {
+                    ans = h[low];
+                    h.erase(h.begin()+low);
+                }
+            }
         }
-    }    
-    cout << ans << "\n";
+        cout << ans << "\n";
+    }
 }
