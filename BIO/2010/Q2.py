@@ -1,4 +1,5 @@
 # Question 2: Die Tipping
+
 class Die:
     def __init__(self):
         self.row = 5
