@@ -1,2 +1,2 @@
 ## Overview:
-A collection of my own solutions to various algorithmic programming problem sets.
+My own solutions to various competitive programming problems.
